@@ -7,3 +7,5 @@ title = "Hocus"
 
 [output.html]
 default-theme = "coal"
+cname = "hocus.dev"
+git-repository-url = "https://github.com/hocus-dev/docs"
