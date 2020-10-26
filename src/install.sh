@@ -7,9 +7,13 @@ To install hocus, try building it from source.
 
 Check out https://hocus.dev/installation.html for more information.
 "
-    AFTER_INSTALLATION_MSG="
+    POST_INSTALLATION_MSG="
 Hocus has been installed.
-To verify the installation was successful, please restart your shell and run
+To verify the installation was successful, restart your shell or run
+
+$ source ~/.profile
+
+and then run
 
 $ hocus
 
@@ -34,7 +38,7 @@ If it was not, please ensure that $HOME/bin is in PATH and that $HOME/bin/hocus 
         echo 'export PATH="$PATH:$HOME/bin"' >> "$HOME/.profile"
     fi
 
-    echo "$AFTER_INSTALLATION_MSG"
+    echo "$POST_INSTALLATION_MSG"
 }
 
 install
