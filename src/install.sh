@@ -22,7 +22,6 @@ If it was not, please ensure that $HOME/bin is in PATH and that $HOME/bin/hocus 
         * ) echo "$UNSUPPORTED_OS_MSG" && return 1;;
     esac
 
-    echo "$SHELL"
     echo "Downloading hocus..."
 
     mkdir -p "$HOME/bin"
