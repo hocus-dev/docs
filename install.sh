@@ -5,7 +5,7 @@ install() {
 We don't seem to provide prebuilt binaries for this OS.
 To install hocus, try building it from source.
 
-Check out https://hocus.dev/installation.html for more information.
+Check out https://hocus.dev/getting_started/installation.html for more information.
 "
     POST_INSTALLATION_MSG="
 Hocus has been installed.
