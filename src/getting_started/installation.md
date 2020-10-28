@@ -8,7 +8,7 @@ Make sure you have installed recent versions of:
 - docker
 - docker-compose
 - VSCode
-- the ms-vscode-remote.remote-containers extension for VSCode
+- the `ms-vscode-remote.remote-containers` extension for VSCode
 
 ## With curl
 
