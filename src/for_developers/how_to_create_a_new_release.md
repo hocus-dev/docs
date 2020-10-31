@@ -14,3 +14,7 @@ Then push it to the remote with:
 ```bash
 git push --tags
 ```
+
+Wait for it to build. Then go to the
+[Github releases page](https://github.com/hocus-dev/cli/releases), click edit on the new draft, and
+publish it.
