@@ -171,15 +171,79 @@
                         <h1><a class="header" href="#your-first-environment" id="your-first-environment">Your first environment</a></h1>
 <p>First, make sure you have installed <code>hocus</code> and have all the prerequisites as described
 <a href="./installation.html">in the previous section</a>.</p>
-<p>Then run</p>
+<h3><a class="header" href="#downloading" id="downloading">Downloading</a></h3>
+<p>Run</p>
 <pre><code class="language-bash">$ hocus get https://github.com/hocus-templates/base hello_world
 </code></pre>
 <p><code>hocus</code> will download the <code>base</code> environment definition to <code>~/.hocus/hello_world</code>. After it's done,
-you will be able to open the environment with</p>
+you will be able to open the environment with:</p>
+<h3><a class="header" href="#opening" id="opening">Opening</a></h3>
 <pre><code class="language-bash">$ hocus open hello_world
 </code></pre>
 <p>If everything has gone well, VSCode is now open inside the <code>hello_world</code> environment. Any file
 change you make in your home folder (<code>/home/hocus/</code>) will be preserved between environment restarts.</p>
+<h3><a class="header" href="#customizing" id="customizing">Customizing</a></h3>
+<p>When you go back to your host machine's terminal, run</p>
+<pre><code class="language-bash">$ hocus edit hello_world
+</code></pre>
+<p>VSCode will open in the folder that contains your environment's definition. Let's look at its
+components.</p>
+<blockquote>
+<p><strong><code>docker-compose.yml</code></strong></p>
+<p>It defines every service that will run as part of your environment. You may add more applications
+to it, such as a database. Take note of the <code>app</code> service. It's built from the <code>Dockerfile</code> that's
+in the environment's folder. It also has the <code>home</code> volume; that's what makes the file changes in
+the <code>/home/hocus/</code> folder persist.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>Dockerfile</code></strong></p>
+<p>It defines what the <code>app</code> service is. You will see the
+<code>FROM hocustemplates/base:latest</code> directive inside. That image's <code>Dockerfile</code> is available in
+<a href="https://github.com/hocus-templates/base-dockerfile/">on Github</a>.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>hocus.yml</code></strong></p>
+<p>Contains directives for <code>hocus</code> itself. Every field is documented inside.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>user_template</code></strong></p>
+<p>This folder is the template from which the <code>user</code> folder is generated the first time an
+environment is opened. We generate <code>user</code> to allow a user to customize the environment without
+interfering with the git repository.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>user</code></strong></p>
+<p>This folder is generated from <code>user_template</code> the first time an environment is opened. It is also
+a local git repository, so you can track the local changes you've made.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>user/init.sh</code></strong></p>
+<p>This script is run by <code>hocus</code> only the first time an environment is opened. Here you can put
+your <code>git clone</code>s, and other single-run directives required to initialize your development
+environment.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>user/shell.sh</code></strong></p>
+<p>Here you define the shell that you will use inside your <code>hocus</code> environment.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>user/build.sh</code></strong></p>
+<p>This script is run from the <code>Dockerfile</code> as root, so you can extend your environment with tools
+that you and none of your other teammates will use.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>user/.env</code></strong></p>
+<p>Here you can define the environment variables that you want to be set in your shell. See how this
+file is sourced in <code>user/shell.sh</code>.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>vscode-settings.json</code></strong></p>
+<p>These are the settings that will be used by VSCode inside the environment.</p>
+</blockquote>
+<blockquote>
+<p><strong><code>.hocus-state.yml</code></strong></p>
+<p>This is a <code>hocus</code>-managed file that you should ignore.</p>
+</blockquote>
 
                     </main>
 
