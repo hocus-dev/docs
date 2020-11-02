@@ -103,7 +103,7 @@ It will turn off all services that are defined in `docker-compose.yml`.
 
 ### Removing an environment
 
-Once you want to get rid of an environment from you machine, run:
+Once you want to get rid of an environment from your machine, run:
 
 ```bash
 $ hocus delete hello_world
