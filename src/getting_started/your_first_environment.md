@@ -3,7 +3,7 @@
 First, make sure you have installed `hocus` and have all the prerequisites as described
 [in the previous section](./installation.md).
 
-### Downloading
+### Downloading an environment
 
 Run
 
@@ -14,7 +14,7 @@ $ hocus get https://github.com/hocus-templates/base hello_world
 `hocus` will download the `base` environment definition to `~/.hocus/hello_world`. After it's done,
 you will be able to open the environment with:
 
-### Opening
+### Opening an environment
 
 ```bash
 $ hocus open hello_world
@@ -23,7 +23,7 @@ $ hocus open hello_world
 If everything has gone well, VSCode is now open inside the `hello_world` environment. Any file
 change you make in your home folder (`/home/hocus/`) will be preserved between environment restarts.
 
-### Customizing
+### Customizing an environment
 
 When you go back to your host machine's terminal, run
 
@@ -89,3 +89,24 @@ components.
 > **`.hocus-state.yml`**
 > 
 > This is a `hocus`-managed file that you should ignore.
+
+
+### Closing an environment
+
+When you are done using an environment for the day, you can shut it down with:
+
+```bash
+hocus close hello_world
+```
+
+It will turn off all services that are defined in `docker-compose.yml`.
+
+### Removing an environment
+
+Once you want to get rid of an environment from you machine, run:
+
+```bash
+hocus delete hello_world
+```
+
+It will delete the environment's folder and delete its Docker volumes.
