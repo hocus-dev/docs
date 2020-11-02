@@ -82,11 +82,11 @@ components.
 > Here you can define the environment variables that you want to be set in your shell. See how this
 > file is sourced in `user/shell.sh`.
 
-> **`vscode-settings.json`**
+> **`user/vscode-settings.json`**
 >
 > These are the settings that will be used by VSCode inside the environment.
 
-> **`.hocus-state.yml`**
+> **`user/.hocus-state.yml`**
 > 
 > This is a `hocus`-managed file that you should ignore.
 
