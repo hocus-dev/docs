@@ -98,7 +98,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="getting_started/installation.html"><strong aria-hidden="true">1.</strong> Getting started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li></ol></li><li class="chapter-item expanded "><a href="for_developers/how_to_create_a_new_release.html"><strong aria-hidden="true">2.</strong> For developers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="for_developers/how_to_create_a_new_release.html"><strong aria-hidden="true">2.1.</strong> How to create a new release</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="getting_started/index.html"><strong aria-hidden="true">1.</strong> Getting started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting_started/installation.html"><strong aria-hidden="true">1.1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="getting_started/your_first_environment.html"><strong aria-hidden="true">1.2.</strong> Your first environment</a></li></ol></li><li class="chapter-item expanded "><a href="for_developers/index.html"><strong aria-hidden="true">2.</strong> For developers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="for_developers/how_to_create_a_new_release.html"><strong aria-hidden="true">2.1.</strong> How to create a new release</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -172,7 +172,22 @@
                     <main>
                         <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
 <p>Hocus is a framework for Docker development environments.</p>
+<h1><a class="header" href="#getting-started" id="getting-started">Getting started</a></h1>
+<p>Let's start your <code>hocus</code> journey! In this chapter you will learn how to:</p>
+<ul>
+<li>install <code>hocus</code>;</li>
+<li>download and open your first environment;</li>
+<li>customize it; and</li>
+<li>remove the environment once you are done with it.</li>
+</ul>
 <h1><a class="header" href="#installation" id="installation">Installation</a></h1>
+<blockquote>
+<p><strong>Command Line Notation</strong></p>
+<p>In this chapter and throughout the book, we’ll show some commands used in the
+terminal. Lines that you should enter in a terminal all start with <code>$</code>. You
+don’t need to type in the <code>$</code> character; it indicates the start of each
+command.</p>
+</blockquote>
 <h2><a class="header" href="#prerequisites" id="prerequisites">Prerequisites</a></h2>
 <p>Make sure you have installed recent versions of:</p>
 <ul>
@@ -183,46 +198,30 @@
 <li>the <code>ms-vscode-remote.remote-containers</code> extension for VSCode</li>
 </ul>
 <h2><a class="header" href="#with-curl" id="with-curl">With curl</a></h2>
-<p>The easiest way to install Hocus is to just run:</p>
-<pre><code class="language-bash">export SHELL &amp;&amp; curl -sSL https://hocus.dev/install.sh | sh
+<p>The easiest way to install <code>hocus</code> is to just run:</p>
+<pre><code class="language-bash">$ export SHELL &amp;&amp; curl -sSL https://hocus.dev/install.sh | sh
 </code></pre>
 <h2><a class="header" href="#building-from-source" id="building-from-source">Building from source</a></h2>
-<p>Alternatively, you may also build Hocus from source. Make sure you have a recent stable
+<p>Alternatively, you may also build <code>hocus</code> from source. Make sure you have a recent stable
 <a href="https://www.rust-lang.org/">Rust</a> toolchain installed and run:</p>
-<pre><code class="language-bash">cargo install --git https://github.com/hocus-dev/cli
+<pre><code class="language-bash">$ cargo install --git https://github.com/hocus-dev/cli
 </code></pre>
-<h1><a class="header" href="#installation-1" id="installation-1">Installation</a></h1>
-<h2><a class="header" href="#prerequisites-1" id="prerequisites-1">Prerequisites</a></h2>
-<p>Make sure you have installed recent versions of:</p>
-<ul>
-<li>git</li>
-<li>docker</li>
-<li>docker-compose</li>
-<li>VSCode</li>
-<li>the <code>ms-vscode-remote.remote-containers</code> extension for VSCode</li>
-</ul>
-<h2><a class="header" href="#with-curl-1" id="with-curl-1">With curl</a></h2>
-<p>The easiest way to install Hocus is to just run:</p>
-<pre><code class="language-bash">export SHELL &amp;&amp; curl -sSL https://hocus.dev/install.sh | sh
+<h1><a class="header" href="#your-first-environment" id="your-first-environment">Your first environment</a></h1>
+<p>First, make sure you have installed <code>hocus</code> and have all the prerequisites as described
+<a href="getting_started/./installation.html">in the previous section</a>.</p>
+<p>Then run</p>
+<pre><code class="language-bash">$ hocus get https://github.com/hocus-templates/base hello_world
 </code></pre>
-<h2><a class="header" href="#building-from-source-1" id="building-from-source-1">Building from source</a></h2>
-<p>Alternatively, you may also build Hocus from source. Make sure you have a recent stable
-<a href="https://www.rust-lang.org/">Rust</a> toolchain installed and run:</p>
-<pre><code class="language-bash">cargo install --git https://github.com/hocus-dev/cli
+<p><code>hocus</code> will download the <code>base</code> environment definition to <code>~/.hocus/hello_world</code>. After it's done,
+you will be able to open the environment with</p>
+<pre><code class="language-bash">$ hocus open hello_world
 </code></pre>
+<p>If everything has gone well, VSCode is now open inside the <code>hello_world</code> environment. Any file
+change you make in your home folder (<code>/home/hocus/</code>) will be preserved between environment restarts.</p>
+<h1><a class="header" href="#for-developers" id="for-developers">For developers</a></h1>
+<p>This chapter contains information that's useful to <code>hocus</code> developers. If you only use <code>hocus</code> to
+create and manage development environments, you can safely skip it.</p>
 <h1><a class="header" href="#how-to-create-a-new-release" id="how-to-create-a-new-release">How to create a new release</a></h1>
-<p>Create a new git tag locally using:</p>
-<pre><code class="language-bash">git tag $TAG_NAME
-</code></pre>
-<p>The tag name should correspond to the current version of the project. It must start with <code>v</code> for the
-proper github actions to kick in; e.g. <code>v0.1.12</code>.</p>
-<p>Then push it to the remote with:</p>
-<pre><code class="language-bash">git push --tags
-</code></pre>
-<p>Wait for it to build. Then go to the
-<a href="https://github.com/hocus-dev/cli/releases">Github releases page</a>, click edit on the new draft, and
-publish it.</p>
-<h1><a class="header" href="#how-to-create-a-new-release-1" id="how-to-create-a-new-release-1">How to create a new release</a></h1>
 <p>Create a new git tag locally using:</p>
 <pre><code class="language-bash">git tag $TAG_NAME
 </code></pre>
