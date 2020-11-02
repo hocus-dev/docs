@@ -171,18 +171,18 @@
                         <h1><a class="header" href="#your-first-environment" id="your-first-environment">Your first environment</a></h1>
 <p>First, make sure you have installed <code>hocus</code> and have all the prerequisites as described
 <a href="./installation.html">in the previous section</a>.</p>
-<h3><a class="header" href="#downloading" id="downloading">Downloading</a></h3>
+<h3><a class="header" href="#downloading-an-environment" id="downloading-an-environment">Downloading an environment</a></h3>
 <p>Run</p>
 <pre><code class="language-bash">$ hocus get https://github.com/hocus-templates/base hello_world
 </code></pre>
 <p><code>hocus</code> will download the <code>base</code> environment definition to <code>~/.hocus/hello_world</code>. After it's done,
 you will be able to open the environment with:</p>
-<h3><a class="header" href="#opening" id="opening">Opening</a></h3>
+<h3><a class="header" href="#opening-an-environment" id="opening-an-environment">Opening an environment</a></h3>
 <pre><code class="language-bash">$ hocus open hello_world
 </code></pre>
 <p>If everything has gone well, VSCode is now open inside the <code>hello_world</code> environment. Any file
 change you make in your home folder (<code>/home/hocus/</code>) will be preserved between environment restarts.</p>
-<h3><a class="header" href="#customizing" id="customizing">Customizing</a></h3>
+<h3><a class="header" href="#customizing-an-environment" id="customizing-an-environment">Customizing an environment</a></h3>
 <p>When you go back to your host machine's terminal, run</p>
 <pre><code class="language-bash">$ hocus edit hello_world
 </code></pre>
@@ -244,6 +244,16 @@ file is sourced in <code>user/shell.sh</code>.</p>
 <p><strong><code>.hocus-state.yml</code></strong></p>
 <p>This is a <code>hocus</code>-managed file that you should ignore.</p>
 </blockquote>
+<h3><a class="header" href="#closing-an-environment" id="closing-an-environment">Closing an environment</a></h3>
+<p>When you are done using an environment for the day, you can shut it down with:</p>
+<pre><code class="language-bash">hocus close hello_world
+</code></pre>
+<p>It will turn off all services that are defined in <code>docker-compose.yml</code>.</p>
+<h3><a class="header" href="#removing-an-environment" id="removing-an-environment">Removing an environment</a></h3>
+<p>Once you want to get rid of an environment from you machine, run:</p>
+<pre><code class="language-bash">hocus delete hello_world
+</code></pre>
+<p>It will delete the environment's folder and delete its Docker volumes.</p>
 
                     </main>
 
