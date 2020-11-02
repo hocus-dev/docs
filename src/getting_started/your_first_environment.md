@@ -96,7 +96,7 @@ components.
 When you are done using an environment for the day, you can shut it down with:
 
 ```bash
-hocus close hello_world
+$ hocus close hello_world
 ```
 
 It will turn off all services that are defined in `docker-compose.yml`.
@@ -106,7 +106,7 @@ It will turn off all services that are defined in `docker-compose.yml`.
 Once you want to get rid of an environment from you machine, run:
 
 ```bash
-hocus delete hello_world
+$ hocus delete hello_world
 ```
 
 It will delete the environment's folder and delete its Docker volumes.
