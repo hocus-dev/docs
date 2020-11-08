@@ -27,6 +27,7 @@ If it was not, please ensure that $HOME/bin is in PATH and that $HOME/bin/hocus 
     mkdir -p "$HOME/bin"
     DOWNLOAD_LINK="https://github.com/hocus-dev/cli/releases/latest/download/$FILENAME"
     OUTPUT_LOCATION="$HOME/bin/hocus"
+    rm -f "$OUTPUT_LOCATION"
     curl -sSL "$DOWNLOAD_LINK" --output "$OUTPUT_LOCATION"
     chmod +x "$OUTPUT_LOCATION"
 
